@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8050
+
+zuul:
+  # 忽略敏感头(例如header, cookie...)
+  sensitive-headers:
