@@ -25,7 +25,7 @@ public class InspectionRecordRepositoryTest extends ClientApplicationTests {
 
     @Test
     public void testSave() {
-        InspectionRecord inspectionRecord = new InspectionRecord("code001", 200, "985f24dd-80d8-49e8-b050-1575aa8a47dd");
+        InspectionRecord inspectionRecord = new InspectionRecord("code001", 200, "113829e6-4e97-4de6-aa55-f8e52ad43c04");
         inspectionRecord.setId(UUID.randomUUID().toString());
         InspectionRecord result = this.inspectionRecordRepository.save(inspectionRecord);
         Assert.assertNotNull(result);

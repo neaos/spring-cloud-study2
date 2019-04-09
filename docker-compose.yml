@@ -19,4 +19,4 @@ services:
   gateway:
     image: gateway:latest
     ports:
-      - 8080:8080
+      - 8050:8050

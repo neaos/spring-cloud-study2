@@ -5,4 +5,4 @@ ADD target/*.jar gateway.jar
 
 #EXPOSE 8050
 
-ENTRYPOINT ["java", "-jar", "/gateway.jar"]
+ENTRYPOINT ["java", "-jar", "/gateway.jar", "--spring.profiles.active=prod"]

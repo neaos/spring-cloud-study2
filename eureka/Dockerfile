@@ -5,4 +5,4 @@ COPY target/*.jar eureka.jar
 
 #EXPOSE 8761
 
-ENTRYPOINT ["java", "-jar", "/eureka.jar"]
+ENTRYPOINT ["java", "-jar", "/eureka.jar", "--spring.profiles.active=prod"]

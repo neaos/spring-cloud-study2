@@ -5,4 +5,4 @@ ADD target/*.jar cloudlink-user.jar
 
 #EXPOSE 8901
 
-ENTRYPOINT ["java", "-jar", "/cloudlink-user.jar"]
+ENTRYPOINT ["java", "-jar", "/cloudlink-user.jar", "--spring.profiles.active=prod"]
