@@ -1,7 +1,8 @@
-FROM hub.c.163.com/library/java:8-alpine
+FROM openjdk:8-jre
+MAINTAINER thank coderthank@163.com
 
-ADD target/*.jar app.jar
+ADD target/*.jar cloudlink-inspection.jar
 
-EXPOSE 8902
+#EXPOSE 8902
 
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-jar", "/cloudlink-inspection.jar"]

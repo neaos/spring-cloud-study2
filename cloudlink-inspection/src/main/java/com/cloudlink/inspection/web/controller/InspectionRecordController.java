@@ -4,6 +4,7 @@ import com.cloudlink.inspection.client.UserFeignClient;
 import com.cloudlink.inspection.domain.InspectionRecord;
 import com.cloudlink.inspection.dto.PriUser;
 import com.cloudlink.inspection.repository.InspectionRecordRepository;
+import com.cloudlink.inspection.service.TestService;
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,9 @@ public class InspectionRecordController {
 
     @Autowired
     private UserFeignClient userFeignClient;
+
+    @Autowired
+    private TestService testService;
 
 
     /**

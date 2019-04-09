@@ -1,7 +1,8 @@
-FROM hub.c.163.com/library/java:8-alpine
+FROM openjdk:8-jre
+MAINTAINER thank coderthank@163.com
 
-ADD target/*.jar app.jar
+COPY target/*.jar eureka.jar
 
-EXPOSE 8761
+#EXPOSE 8761
 
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-jar", "/eureka.jar"]

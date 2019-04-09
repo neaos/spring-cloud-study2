@@ -1,0 +1,40 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:8761/eureka/
+#  instance:
+#    prefer-ip-address: true
+#  instance:
+#    hostname: clientName
+
+spring:
+  application:
+    name: cloudlink-inspection
+  datasource:
+    url: jdbc:mysql://${mysql.address}:3306/test?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: tianfeifei
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 3000
+#    getProductInfoList3_2:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 3000
+
+feign:
+  hystrix:
+    enabled: true

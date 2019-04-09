@@ -1,7 +1,8 @@
-FROM hub.c.163.com/library/java:8-alpine
+FROM openjdk:8-jre
+MAINTAINER thank coderthank@163.com
 
-ADD target/*.jar app.jar
+ADD target/*.jar gateway.jar
 
-EXPOSE 8050
+#EXPOSE 8050
 
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-jar", "/gateway.jar"]

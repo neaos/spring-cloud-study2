@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  eureka:
+    image: eureka:latest
+    ports:
+      - 8761:8761
+
+  cloudlink-user:
+    image: cloudlink-user:latest
+    command:
+      - "--mysql.address=192.168.50.64"
+
+  cloudlink-inspection:
+    image: cloudlink-inspection:latest
+    command:
+      - "--mysql.address=192.168.50.64"
+
+  gateway:
+    image: gateway:latest
+    ports:
+      - 8080:8080
