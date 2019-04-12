@@ -8,6 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,8 +36,27 @@ public class PriUserController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+
+    @GetMapping("login")
+    public String login(HttpServletRequest request, @RequestParam String username) {
+        HttpSession session = request.getSession();
+        log.warn("session id: {}", session.getId());
+        session.setAttribute("username", username);
+        return HttpStatus.OK.name();
+    }
+
+    @GetMapping("get")
+    public String get(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        log.warn("session id:{}", session.getId());
+        return String.valueOf(session.getAttribute("username"));
+    }
+
     @GetMapping("getAll")
-    public ResponseEntity<List<PriUser>> getAll() {
+    public ResponseEntity<List<PriUser>> getAll(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        log.warn("session id: {}", session.getId());
+        this.cookiesLog(request);
         List<PriUser> priUserList = this.priUserRepository.findAll();
         return new ResponseEntity<>(priUserList, HttpStatus.OK);
     }
@@ -51,10 +73,18 @@ public class PriUserController {
 //            Thread.sleep(3000);
 //        } catch (InterruptedException e) {
 //        }
-
+//
 //        throw new IllegalArgumentException();
         return this.priUserRepository.findAllById(userIds);
     }
 
 
+   private void cookiesLog(HttpServletRequest request) {
+       Cookie[] cookies = request.getCookies();
+       if (null != cookies && cookies.length > 0) {
+           for (Cookie cookie : cookies) {
+               log.warn("cookie name:{}, value:{}", cookie.getName(), cookie.getValue());
+           }
+       }
+   }
 }

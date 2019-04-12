@@ -27,6 +27,9 @@ public class PriUser {
 
     private Date updateTime;
 
+    public PriUser() {
+    }
+
     public PriUser(String name, Integer age) {
         this.name = name;
         this.age = age;
