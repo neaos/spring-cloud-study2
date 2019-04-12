@@ -14,5 +14,13 @@ server:
   port: 8050
 
 zuul:
-  # 忽略敏感头(例如header, cookie...)
+  # 忽略敏感头(例如header, cookie...) --- 全局的配置, 也可分服务配置
   sensitive-headers:
+  routes: # 服务的路由(两种写法)
+    cloudlink-user: /user/**
+    inspection:
+      path: /inspection/**
+      serviceId: cloudlink-inspection
+  ignored-patterns: # 忽略某些路由
+    - /user/**/ignore*
+    - /cloudlink-user/**/ignore*

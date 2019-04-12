@@ -62,6 +62,12 @@ public class PriUserController {
     }
 
 
+    @GetMapping("ignoreFromGateway")
+    public String 测试网关的忽略该路由() {
+        return "测试ignore";
+    }
+
+
     /**
      * for cloudlink-inspection micro service
      */
